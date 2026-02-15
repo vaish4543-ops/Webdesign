@@ -4,28 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Women's Clothing Design Application</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        #design-canvas { border: 1px solid #ccc; width: 100%; height: 500px; margin-top: 20px; }
+        .toolbar { margin: 10px 0; }
+        .color-picker { margin-right: 10px; }
+        .chat-box { border: 1px solid #ccc; background: #f9f9f9; padding: 10px; height: 400px; overflow-y: scroll; }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to the Women's Clothing Design Application</h1>
+        <h1>Women's Clothing Design Application</h1>
     </header>
     <main>
+        <section id="dress-selection">
+            <h2>Select Dress Category</h2>
+            <select id="category">
+                <option value="dress">Dress</option>
+                <option value="top">Top</option>
+                <option value="skirt">Skirt</option>
+                <option value="pants">Pants</option>
+            </select>
+        </section>
+        <section class="toolbar">
+            <label class="color-picker">Choose Color:</label>
+            <input type="color" id="color-picker" />
+            <button id="draw">Draw</button>
+            <button id="text">Add Text</button>
+            <button id="download">Download</button>
+        </section>
         <section>
-            <h2>Design Your Outfit</h2>
-            <form>
-                <label for="item">Choose an item:</label>
-                <select id="item" name="item">
-                    <option value="dress">Dress</option>
-                    <option value="top">Top</option>
-                    <option value="skirt">Skirt</option>
-                </select>
-                <button type="submit">Design</button>
-            </form>
+            <canvas id="design-canvas"></canvas>
+        </section>
+        <section>
+            <h2>Design Library</h2>
+            <div id="design-library">
+                <p>Add your designs and modify them here.</p>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2026 Women's Clothing Design Application</p>
-    </footer>
+    <script>
+        // JavaScript for functionality (like drawing and downloading designs)
+        const canvas = document.getElementById('design-canvas');
+        const ctx = canvas.getContext('2d');
+
+        document.getElementById('draw').addEventListener('click', () => {
+            const color = document.getElementById('color-picker').value;
+            ctx.fillStyle = color;
+            ctx.fillRect(50, 50, 100, 100);  // Example drawing
+        });
+
+        document.getElementById('download').addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'design.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    </script>
 </body>
 </html>
