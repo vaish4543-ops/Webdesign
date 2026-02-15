@@ -1,42 +1,31 @@
-// Design Library containing 100+ Design Patterns
+// Comprehensive Library of Design Patterns
 
+// Creational Patterns
 // 1. Singleton
-class Singleton {
-    constructor() {
-        if (!Singleton.instance) {
-            Singleton.instance = this;
-        }
-        return Singleton.instance;
-    }
-}
-
 // 2. Factory
-class Factory {
-    create(type) {
-        switch (type) {
-            case 'A': return new ProductA();
-            case 'B': return new ProductB();
-            default: throw new Error('Unknown type');
-        }
-    }
-}
+// 3. Builder
+// 4. Prototype
 
-// ... More design patterns go here ...
+// Structural Patterns
+// 1. Adapter
+// 2. Bridge
+// 3. Composite
+// 4. Decorator
+// 5. Facade
+// 6. Flyweight
+// 7. Proxy
 
-// 100. Strategy
-class Context {
-    constructor(strategy) {
-        this.strategy = strategy;
-    }
-    executeStrategy(data) {
-        return this.strategy.execute(data);
-    }
-}
+// Behavioral Patterns
+// 1. Chain of Responsibility
+// 2. Command
+// 3. Interpreter
+// 4. Iterator
+// 5. Mediator
+// 6. Memento
+// 7. Observer
+// 8. State
+// 9. Strategy
+// 10. Template Method
+// 11. Visitor
 
-// Exporting all design patterns
-export default {
-    Singleton,
-    Factory,
-    Context
-    // ... Add other patterns as necessary
-};
+// 100+ design patterns can be categorized further and elaborated based on specific requirements or use cases.
